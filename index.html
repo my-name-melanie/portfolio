@@ -7,19 +7,56 @@
     <meta name="description" content="This portfolio showcases my knowledge and skills as a web developer.">
     <meta charset="utf-8">
 
-    <link rel="stylesheet" type="text/css" href="./CSS/test.css">
+    <link rel="stylesheet" type="text/css" href="./src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./src/contactForm.js"></script>
 </head>
 <body>
-    <h1>Melanie Piotrowski</h1>
-    <span id="icons">
-        <a class="fa fa-fw fa-4x spacing" id="resume" title="Download a copy of my resume (PDF)" href="https://drive.google.com/file/d/1qxJTmAdzAAvwVRnAzlmVZn-Yafnz3Lf3/view?usp=sharing">
-            <span class="screen-reader-only">Download a copy of my resume (PDF)</span>
-        </a>
-        <a class="fa fa-fw fa-4x fa-linkedin spacing" href="https://www.linkedin.com/in/melanie-piotrowski/"></a>
-        <a class="fa fa-fw fa-4x fa-github spacing" href="https://github.com/my-name-melanie"></a>
-    </span>
+    <main>
+        <h1>Melanie Piotrowski</h1>
+        <span id="icons">
+            <a class="fa fa-fw fa-4x spacing" id="resume" title="Download a copy of my resume (PDF)" href="https://drive.google.com/file/d/1qxJTmAdzAAvwVRnAzlmVZn-Yafnz3Lf3/view?usp=sharing">
+                <span class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></span>
+                <span class="sr-only">Download a copy of my resume (PDF)</span>
+            </a>
+            <a class="fa fa-fw fa-4x fa-linkedin spacing" title="View my LinkedIn profile" href="https://www.linkedin.com/in/melanie-piotrowski/"></a>
+            <a class="fa fa-fw fa-4x fa-github spacing" title="View my GitHub profile" href="https://github.com/my-name-melanie"></a>
+            <a id="email" class="fa fa-fw fa-4x fa-envelope spacing" title="Send me an E-Mail"></a>
+        </span>
+        <form id="contact" action="" method="post">
+            <section>
+                <span class="fa fa-2x fa-envelope-o flex-header" aria-hidden="true">
+                    <h2>E-Mail Me!</h2>
+                </span>
+                <ul>
+                    <li>
+                        <label for="name">From: <abbr title="required" aria-label="required"></abbr></label>
+                        <input id="name" type="text" name="name" placeholder="Required" required>
+                    </li>
+                    <li>
+                        <label for="email">E-Mail: <abbr title="required" aria-label="required"></abbr></label>
+                        <input id="email" type="email" name="email" placeholder="Required" required>
+                    </li>
+                    <li>
+                        <label for="subject">Subject: <abbr title="optional" aria-label="optional"></abbr></label>
+                        <input id="subject" type="text" name="subject" placeholder="">
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <label for="message">Message: <abbr title="required" aria-label="required"></abbr></label>
+                <textarea id="message" name="message" required>Your message here...</textarea>
+            </section>
+            <button id="submit" type="submit">
+                <span class="fa fa-fw fa-3x fa-spinner fa-spin"></span>
+                <span class="sr-only">Sending...</span>
+                Send your message
+            </button>
+        </form>
+    </main>
 </body>
 </html>
