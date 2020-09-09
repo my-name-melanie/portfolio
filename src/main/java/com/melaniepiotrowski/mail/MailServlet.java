@@ -79,8 +79,21 @@ public class MailServlet extends HttpServlet {
 
     // runs on form submit (POST)
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();        
+        PrintWriter out = response.getWriter();
+        String req = "";
+        req += request.getParameter("name") + ", ";
+        req += request.getParameter("email") + ", ";
+        req += request.getParameter("subject") + ", ";
+        req += request.getParameter("message") + ", ";
+        req += request.getParameter("captchatoken");
         
+        response.setHeader("Cache-Control", "no-cache");
+        response.setHeader("Pragma", "no-cache");
+        response.setContentType("text/plain");
+        
+        out.print("REQUEST: ");
+        out.print(req);
+/*
         if (isCaptchaValid(SECRET, request.getParameter("captchatoken"))){
 
             // set up new Mailer with protocol & port
@@ -115,14 +128,15 @@ public class MailServlet extends HttpServlet {
             } catch (MessagingException me) { // log error
                 out.print("<span class=\"fa fa-fw fa-times invalid\" aria-hidden=\"true\"></span>Error in Creating Email");
             }
-            //try { // send email and set response
-            //    javaEmail.sendEmail();
+            try { // send email and set response
+                javaEmail.sendEmail();
                 out.print("<span class=\"fa fa-fw fa-check-square-o success\" aria-hidden=\"true\"></span>Email sent Successfully!");
-            //} catch (MessagingException me) { // set response to error message
-            //    out.print("<span class=\"fa fa-fw fa-times invalid\" aria-hidden=\"true\"></span>Error in Sending Email");
-            //}
+            } catch (MessagingException me) { // set response to error message
+                out.print("<span class=\"fa fa-fw fa-times invalid\" aria-hidden=\"true\"></span>Error in Sending Email");
+            }
         }else { // validation failed, set response to error message
             out.print("<span class=\"fa fa-fw fa-times invalid\" aria-hidden=\"true\"></span>Unable to Validate ReCaptcha");
         }
+*/
     }
 }

@@ -31,7 +31,7 @@ $(function() {
         var form = $("#contact");
 
         $.ajax({
-            url: 'MailServlet',
+            url: 'MailAdapter',
             type: 'POST',
             data: form.serialize()
         }).done(function(response) {
@@ -116,7 +116,7 @@ $(function() {
         event.preventDefault();
         
         var errors = validateContactForm();
-        (errors.length == 0) ? getCaptchaToken() : errors.forEach(setErrors);
+        (errors.length != 0) ? errors.forEach(setErrors) : getCaptchaToken();
     });
 
     // toggle visibility of contact form on Email Button click
