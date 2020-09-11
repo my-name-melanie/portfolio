@@ -8,4 +8,4 @@ Additionally, I've created a workflow that will drop all relevant files into my 
 
 I'll be using this repository for my ongoing experiments with API Gateway, AWS Lambda, and potentially CloudFront or Amplify (not sure which direction I'm headed here yet).
 
-To see the website in action, visit <a href="melaniepiotrowski.com">MelaniePiotrowski.com</a>
+To see the website in action, visit <a href="http://melaniepiotrowski.com">MelaniePiotrowski.com</a>
